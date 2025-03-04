@@ -1,7 +1,7 @@
 public class PracticeProblem {
 	public static void main(String args[]) {
 	
-	System.out.println(totalWordsChecker("Hello_a b c d e f g h i j"));
+	System.out.println(totalWordsChecker("Hello'a b c d e f g h i j"));
 	}
 public static int calculate(int num, int num2, char c){
 	switch (c){
@@ -22,14 +22,16 @@ public static int calculate(int num, int num2, char c){
 
 final static int MAXIMUM = 10;
 public static boolean totalWordsChecker(String words){
-	words=words.trim();
+	words = words.trim();
+	words = words.replaceAll("'", "");
+	words = words.replaceAll("_", "");
 	if(words.isEmpty()){
 		return true;
 	}
 	String wordsL = words.toLowerCase();
 	String wordsU = words.toUpperCase();
 	int counter = 0;
-	words.replaceAll(",", " ");
+
 	int i = 0;
 	while(i<words.length()){
 		if(i>=words.length()){
